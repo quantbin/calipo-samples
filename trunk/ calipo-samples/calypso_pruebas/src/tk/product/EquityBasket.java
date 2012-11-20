@@ -15,7 +15,7 @@ import java.util.Hashtable;
  * persistent object that does not extend from an existing Calypso object.  This
  * particular class is a very simple model of an equity basket, a collection of
  * equity names and corresponding weights that represent the percentage of shares
- * that each equity contributes to the entire basket.  This examle is for
+ * that each equity contributes to the entire basket.  This example is for
  * illustrative purposes only, and should not be used to model an actual,
  * full-fledged equity basket.
  * -----

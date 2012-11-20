@@ -9,7 +9,6 @@ import com.calypso.tk.service.DSConnection;
 import com.calypso.tk.util.ConnectException;
 import com.calypso.tk.util.ConnectionUtil;
 
-
 /**
  * COOKBOOK EXAMPLE:
  *    How do I create a custom persistent object that does not extend from an
@@ -23,10 +22,12 @@ import com.calypso.tk.util.ConnectionUtil;
  * deletes the new equity basket from the database and attempts to load it back
  * from the database again, to demonstrate that it was indeed removed.
  */
-public class UseEquityBasket {
-
-    @SuppressWarnings("deprecation")
-	public static void main(String[] args) {
+@SuppressWarnings("deprecation")
+public class UseEquityBasket
+{
+  
+	public static void main(String[] args)
+	{
 
         if(args.length < 2) {
             Log.system("samples", "Usage: java UseEquityBasket"
@@ -64,6 +65,7 @@ public class UseEquityBasket {
             // --
             // 3. SAVE THE EQUITY BASKET
             // --
+          //GSM: se crea el objeto serializable y que implementa el DSTransactionInput. Tambien la transaccion "save"
             EquityBasketTransactionInput itemToSave = new EquityBasketTransactionInput(newEB, "save");
 
             // Pass the TransactionInput class to the DataServer through RemoteAccess.
@@ -80,8 +82,10 @@ public class UseEquityBasket {
             EquityBasket ebWithNameOnly = new EquityBasket();
 
             ebWithNameOnly.setName(inputEquityBasketName);
-
+            
+            //GSM: se crea el objeto serializable y que implementa el DSTransactionInput. Tambien el tipo de transacción.
             EquityBasketTransactionInput loadInstructions = new EquityBasketTransactionInput(ebWithNameOnly, "load");
+            //se le pasa el input a la conexión DS.
             EquityBasket loadedEB = (EquityBasket) ds.getRemoteAccess().process(loadInstructions);
 
             Log.system("samples", "UseEquityBasket: Loaded equity basket.");
