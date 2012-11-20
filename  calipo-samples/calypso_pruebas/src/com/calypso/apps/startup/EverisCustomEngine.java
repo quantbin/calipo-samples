@@ -32,13 +32,16 @@ public class EverisCustomEngine extends Engine {
     }
 
     /**
-     * 
+     * GSM: handle del eventos de este engine.
      */
     public boolean process(PSEvent event) {
 
         boolean      result = true;
         DSConnection ds     = getDS();
-
+        //Aqui es donde se gestiona el evento creado de forma especifica para la logica de
+        //EquityBasket. El evento ha sido generado por EquityBasketTransactionHandler
+        //para asegurar la atomicidad de la operacion. 
+        //El DS se asegurará de declarar que se ha realizado el commit de la operación en la BBDD.
         if(event instanceof PSEventEquityBasket) {
             handleEvent((PSEventEquityBasket) event);
 

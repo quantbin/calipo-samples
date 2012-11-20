@@ -50,7 +50,8 @@ import com.calypso.tk.service.DSTransactionInput;
  * class.  The SQL class, in turn, will generally take responsibility for SQL
  * statement construction and execution using the passed connection.
  */
-public class EquityBasketTransactionHandler implements DSTransactionHandler {
+public class EquityBasketTransactionHandler implements DSTransactionHandler
+{
 
     /**
      * From DSTransactionHandler interface.
@@ -101,11 +102,12 @@ public class EquityBasketTransactionHandler implements DSTransactionHandler {
             // --
             // B. EXECUTE THE COMMAND
             // --
-            EquityBasketTransactionInput ebInput =
-                (EquityBasketTransactionInput) input;
+          //DSTransactionInput, casting del parametro
+            EquityBasketTransactionInput ebInput = (EquityBasketTransactionInput) input; 
             EquityBasket equityBasket    = ebInput.getEquityBasket();
             String       transactionType = ebInput.getTransactionType();
 
+           
             if(equityBasket != null) {
                 if(transactionType.equals("save")) {
                     EquityBasketSQL.save(equityBasket, con);

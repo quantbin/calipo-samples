@@ -70,6 +70,9 @@ public class EquityBasketTransactionInput
     /**
      * From DSTransactionInput interface.
      */
+    //Este es el punto que se encarga de llamar al Handler especifico dado por la interfaz
+    //Éste creará un evento para acceso persistente a la BBDD (PSEventEquityBasket) y, a traves de este, 
+    //se llamara de forma estática a la base de datos.
     public String getHandler() {
         return "tk.service.EquityBasketTransactionHandler";
     }
