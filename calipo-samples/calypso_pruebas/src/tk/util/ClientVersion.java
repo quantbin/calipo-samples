@@ -39,7 +39,7 @@ public class ClientVersion implements ClientVersionInterface{
 	public Component getGUIComponent (){
 		
 		
-        	//Contenido a añadir a la ventana de login
+        	//Contenido a aÃ±adir a la ventana de login
 		
         
 		return null;
